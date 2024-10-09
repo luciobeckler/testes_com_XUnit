@@ -46,5 +46,19 @@ namespace JornadaMilhas.Test
 
             Assert.Contains("O preço da oferta de viagem deve ser maior que zero.", oferta.Erros.Sumario);
         }
+
+        [Fact]
+        public void RetornaTresErrosDeValidacaoQuandoRotaPeriodoEPrecoSaoInvalidos()
+        {
+            Rota rota = null;
+            Periodo periodo = new Periodo(new DateTime(2024, 01, 02), new DateTime(2024, 01, 01));
+            double preco = -100;
+            int quantidadeErrosEsperado = 3;
+
+            OfertaViagem oferta = new OfertaViagem(rota, periodo, preco);
+
+            Assert.Equal(quantidadeErrosEsperado, oferta.Erros.Count());
+        }
+
     }
 }
