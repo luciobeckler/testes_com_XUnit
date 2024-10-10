@@ -15,6 +15,8 @@ public class GerenciadorDeOfertas
         this.ofertaViagem = ofertaViagem;
     }
 
+    public OfertaViagem? RecuperaMaiorDesconto(Func<OfertaViagem, bool> filtro) => ofertaViagem.FirstOrDefault();
+    
     public void CadastrarOferta()
     {
         Console.WriteLine("-- Cadastro de ofertas --");
